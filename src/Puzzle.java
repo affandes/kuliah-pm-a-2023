@@ -9,6 +9,12 @@ public class Puzzle {
         return output;
     }
 
+    public Puzzle(int[] data) {
+        for (int i = 0; i < data.length; i++) {
+            this.data[i] = data[i];
+        }
+    }
+
     public int posisiNol() {
         for (int i = 0; i < data.length; i++) {
             if (data[i] == 0) {
@@ -18,14 +24,55 @@ public class Puzzle {
         return -1;
     }
 
-    public void moveDown() {
+    public Puzzle moveDown() {
         int nol = posisiNol();
+        Puzzle puzzleBaru = new Puzzle(data);
         if (nol >= 3) {
-            int t = data[nol];
-            data[nol] = data[nol-3];
-            data[nol-3] = t;
+            int t = puzzleBaru.data[nol];
+            puzzleBaru.data[nol] = puzzleBaru.data[nol-3];
+            puzzleBaru.data[nol-3] = t;
         } else {
             System.out.println("Gak bisa");
         }
+        return puzzleBaru;
+    }
+
+    public Puzzle moveUp() {
+        int nol = posisiNol();
+        Puzzle puzzleBaru = new Puzzle(data);
+        if (nol < 6) {
+            int t = puzzleBaru.data[nol];
+            puzzleBaru.data[nol] = puzzleBaru.data[nol+3];
+            puzzleBaru.data[nol+3] = t;
+        } else {
+            System.out.println("Gak bisa");
+        }
+        return puzzleBaru;
+    }
+
+    public Puzzle moveLeft() {
+        int nol = posisiNol();
+        Puzzle puzzleBaru = new Puzzle(data);
+        if (nol != 2 && nol !=5 && nol !=8) {
+            int t = puzzleBaru.data[nol];
+            puzzleBaru.data[nol] = puzzleBaru.data[nol+1];
+            puzzleBaru.data[nol+1] = t;
+        } else {
+            System.out.println("Gak bisa");
+        }
+        return puzzleBaru;
+    }
+
+    public Puzzle moveRight() {
+        int nol = posisiNol();
+        Puzzle puzzleBaru = new Puzzle(data);
+        if (nol != 0 && nol != 3 && nol != 6) {
+            int t = puzzleBaru.data[nol];
+            puzzleBaru.data[nol] = puzzleBaru.data[nol-1];
+            puzzleBaru.data[nol-1] = t;
+        } else {
+            System.out.println("Gak bisa");
+        }
+        return puzzleBaru;
     }
 }
