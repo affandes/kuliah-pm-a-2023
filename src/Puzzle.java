@@ -78,8 +78,8 @@ public class Puzzle {
 
     public Puzzle[] next() {
         int nol = posisiNol();
-        Puzzle[] puzzles;
-        if (nol == 0) {
+        Puzzle[] puzzles = new Puzzle[2];
+        /*if (nol == 0) {
             puzzles = new Puzzle[2];
             // LU
             puzzles[0] = moveLeft();
@@ -100,7 +100,7 @@ public class Puzzle {
             // LRD
         } else {
             // RD
-        }
+        }*/
         return puzzles;
     }
 
@@ -123,5 +123,11 @@ public class Puzzle {
 
         }
 
+        return new Puzzle[]{};
+
+    }
+
+    public Puzzle filterVisited(Puzzle[] puzzles) {
+        return puzzles[0];
     }
 }

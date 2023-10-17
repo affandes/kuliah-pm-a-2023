@@ -7,11 +7,11 @@ public class QueuePuzzle {
     }
 
     public Puzzle dequeue() {
-
+        return null;
     }
 
     public boolean isEmpty() {
-
+        return false;
     }
     
 }
