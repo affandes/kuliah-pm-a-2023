@@ -75,4 +75,53 @@ public class Puzzle {
         }
         return puzzleBaru;
     }
+
+    public Puzzle[] next() {
+        int nol = posisiNol();
+        Puzzle[] puzzles;
+        if (nol == 0) {
+            puzzles = new Puzzle[2];
+            // LU
+            puzzles[0] = moveLeft();
+            puzzles[1] = moveUp();
+        } else if (nol == 1) {
+            // LRU
+        } else if (nol == 2) {
+            // RU
+        } else if (nol == 3) {
+            // LDU
+        } else if (nol == 4) {
+            // LRDU
+        } else if (nol == 5) {
+            // RDU
+        } else if (nol == 6) {
+            // LD
+        } else if (nol == 7) {
+            // LRD
+        } else {
+            // RD
+        }
+        return puzzles;
+    }
+
+    public Puzzle[] cariSolusi(Puzzle start, Puzzle finish) {
+
+        QueuePuzzle queue = new QueuePuzzle();
+
+        queue.enqueue(start);
+        boolean sudahKetemuSolusi = false;
+
+        while (!sudahKetemuSolusi && !queue.isEmpty() ) {
+
+            Puzzle currentPuzzle = queue.dequeue();
+            if (currentPuzzle.equals(finish)) {
+                sudahKetemuSolusi = true;
+            } else {
+                Puzzle[] puzzles = next();
+                queue.enqueue(filterVisited(puzzles));
+            }
+
+        }
+
+    }
 }

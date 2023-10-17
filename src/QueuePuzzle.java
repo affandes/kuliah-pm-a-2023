@@ -9,5 +9,9 @@ public class QueuePuzzle {
     public Puzzle dequeue() {
 
     }
+
+    public boolean isEmpty() {
+
+    }
     
 }
