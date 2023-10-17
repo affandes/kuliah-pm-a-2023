@@ -2,6 +2,8 @@ public class Tree {
     public Node root;
 
     public void cari(int data) {
-        root.cari(data);
+        if (root != null) {
+            root.cari(data);
+        }
     }
 }

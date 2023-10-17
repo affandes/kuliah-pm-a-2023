@@ -6,8 +6,12 @@ public class Node {
         if (data == this.data) {
             System.out.println("Ketemu");
         } else {
-            for (int i = 0; i < children.length; i++) {
-                children[i].cari(data);
+            if (children != null) {
+                for (int i = 0; i < children.length; i++) {
+                    if (children[i] != null) {
+                        children[i].cari(data);
+                    }
+                }
             }
         }
     }

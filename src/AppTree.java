@@ -12,7 +12,7 @@ public class AppTree {
         tree.root.children[2] = new Node();
         tree.root.children[2].data = 16;
 
-        tree.cari(12);
+        tree.cari(15);
 
     }
 }
